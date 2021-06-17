@@ -28,7 +28,7 @@ const Header = () => {
             </div>
 
             <div>
-                <input type="text" placeholder="Search country..." onChange={debounce((e) => dispatch(searchedCountries(e.target.value)), 500)} />
+                <input type="text" placeholder="Search country..." onChange={debounce((e) => e.target.value ? dispatch(searchedCountries(e.target.value)) : dispatch(getCountries()), 500)} />
             </div>
 
             <div>
