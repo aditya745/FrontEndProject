@@ -1,5 +1,6 @@
 const initialState = {
-    countries: []
+    countries: [],
+    filteredCountries: []
 };
 
 const countriesReducer = (state = initialState, {type, payload}) => {
@@ -13,7 +14,7 @@ const countriesReducer = (state = initialState, {type, payload}) => {
             const searchedCountries = state.countries.filter((country) => country.name.toLowerCase().indexOf(payload.toLowerCase()) !== -1)
             return {
                 ...state,
-                countries: searchedCountries
+                filteredCountries: searchedCountries
             }
         default: 
             return state;    

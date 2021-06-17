@@ -13,9 +13,9 @@ export const getCountriesSuccess = (countries) => {
     }
 }
 
-export const searchedCountries = (countries) => {
+export const searchedCountries = (searchInput) => {
     return {
         type: 'SEARCHED_COUNTRIES',
-        payload: countries
+        payload: searchInput
     }
 }

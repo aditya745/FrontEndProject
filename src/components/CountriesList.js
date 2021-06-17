@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+
 import {
     TablePagination,
     Table,
@@ -23,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Countries = () => {
-    const countries = useCountries();
+const CountriesList = () => {
+    const allCountries = useCountries();
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -53,7 +54,7 @@ const Countries = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {countries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
+                        {allCountries.filteredCountries.length !== 0 ? allCountries.filteredCountries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
                             <TableRow key={country.name}>
                                 <TableCell>
                                     <img src={country.flag} width="100px" height="60px" alt="flag" />
@@ -65,7 +66,23 @@ const Countries = () => {
                                 <TableCell>{country.population}</TableCell>
                                 <TableCell>
                                     <IconButton>
-                                    <ThumbUpRoundedIcon variant="contained" color="primary" />
+                                        <ThumbUpRoundedIcon variant="contained" color="primary" />
+                                    </IconButton>
+                                </TableCell>
+                            </TableRow>
+                        )) : allCountries.countries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
+                            <TableRow key={country.name}>
+                                <TableCell>
+                                    <img src={country.flag} width="100px" height="60px" alt="flag" />
+                                </TableCell>
+                                <TableCell>{country.name}</TableCell>
+                                <TableCell>{country.alpha2Code}</TableCell>
+                                <TableCell>{country.region}</TableCell>
+                                <TableCell>{country.capital}</TableCell>
+                                <TableCell>{country.population}</TableCell>
+                                <TableCell>
+                                    <IconButton>
+                                        <ThumbUpRoundedIcon variant="contained" color="primary" />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
@@ -73,7 +90,7 @@ const Countries = () => {
                     </TableBody>
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 15, 20]}
-                        count={countries.length}
+                        count={allCountries.length ? allCountries.countries.length : allCountries.filteredCountries.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         onChangePage={onChangePage}
@@ -84,4 +101,4 @@ const Countries = () => {
         </div>
     )
 }
-export default Countries;
+export default CountriesList;
