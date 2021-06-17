@@ -90,7 +90,7 @@ const CountriesList = () => {
                     </TableBody>
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 15, 20]}
-                        count={allCountries.length ? allCountries.countries.length : allCountries.filteredCountries.length}
+                        count={allCountries.filteredCountries.length !== 0 ? allCountries.filteredCountries.length : allCountries.countries.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         onChangePage={onChangePage}
