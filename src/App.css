@@ -1,0 +1,25 @@
+.container {
+  min-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2em;
+  background-color: #3F51B5;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  
+}
+
+input[type=text] {
+  padding: 6px;
+  margin-top: 25px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
