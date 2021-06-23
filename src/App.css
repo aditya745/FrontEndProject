@@ -7,8 +7,6 @@
   display: flex;
   justify-content: space-between;
   padding: 0 2em;
-  background-color: #3F51B5;
-  color: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,10 +14,11 @@
   
 }
 
-input[type=text] {
+input[type=text], .toggle {
   padding: 6px;
   margin-top: 25px;
   font-size: 20px;
-  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
   outline: none;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
     TablePagination,
@@ -14,6 +15,8 @@ import ThumbUpRoundedIcon from '@material-ui/icons/ThumbUpRounded';
 
 import useCountries from '../customHooks/countryHook';
 import { makeStyles, TableContainer } from '@material-ui/core';
+import { ThemeContext, themes } from '../themes/themes-context';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         height: '100vh',
         overflowX: 'auto',
         paddingTop: theme.spacing(11),
+        color: '#F5D238',
     },
 }));
 
@@ -29,6 +33,7 @@ const CountriesList = () => {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+    const { toggle } = useContext(ThemeContext);
 
     const onChangePage = (event, nextPage) => {
         setPage(nextPage)
@@ -39,7 +44,7 @@ const CountriesList = () => {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={toggle ? themes.dark: {}}>
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -53,13 +58,13 @@ const CountriesList = () => {
                             <TableCell><strong>Liked Countries</strong></TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody style={toggle ? themes.dark: {}}>
                         {allCountries.filteredCountries.length !== 0 ? allCountries.filteredCountries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
                             <TableRow key={country.name}>
                                 <TableCell>
                                     <img src={country.flag} width="100px" height="60px" alt="flag" />
                                 </TableCell>
-                                <TableCell>{country.name}</TableCell>
+                                <TableCell><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none' }}>{country.name}</Link></TableCell>
                                 <TableCell>{country.alpha2Code}</TableCell>
                                 <TableCell>{country.region}</TableCell>
                                 <TableCell>{country.capital}</TableCell>
@@ -75,7 +80,7 @@ const CountriesList = () => {
                                 <TableCell>
                                     <img src={country.flag} width="100px" height="60px" alt="flag" />
                                 </TableCell>
-                                <TableCell>{country.name}</TableCell>
+                                <TableCell><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none'}}>{country.name}</Link></TableCell>
                                 <TableCell>{country.alpha2Code}</TableCell>
                                 <TableCell>{country.region}</TableCell>
                                 <TableCell>{country.capital}</TableCell>
