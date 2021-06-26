@@ -2,18 +2,23 @@ import React, {useState} from 'react';
 
 const themes = {
     dark: {
-        background: '#1C2021',
-        MuiTableCellBody: {
-            color: '#F5D238',
-        }
+        background: '#333333',
+        color: '#FFFFFF',
+        overrides: {
+            MuiTableCellBody: {
+              root: {
+                color: 'white',
+              },
+            },
+          },
     },
     light: {
         background: 'white',
-        color: '#F5D238',
+        color: 'yellow',
     }
 }
 
-const ThemeContext = React.createContext();
+const ThemeContext = React.createContext(themes.dark);
 
 const ThemeProvider = ({ children }) => {
     const [toggle, setToggle] = useState(false);

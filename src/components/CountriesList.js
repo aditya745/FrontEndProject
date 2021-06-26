@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+
 import {
     TablePagination,
     Table,
@@ -26,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: theme.spacing(11),
         color: '#F5D238',
     },
+    table: {
+        margin: 'auto',
+        color: 'white !important'
+    }
 }));
 
 const CountriesList = () => {
@@ -45,55 +50,56 @@ const CountriesList = () => {
 
     return (
         <div className={classes.root} style={toggle ? themes.dark: {}}>
-            <TableContainer>
+            <TableContainer >
                 <Table>
                     <TableHead>
-                        <TableRow>
-                            <TableCell><strong>Flag</strong></TableCell>
-                            <TableCell><strong>Name</strong></TableCell>
-                            <TableCell><strong>Code</strong></TableCell>
-                            <TableCell><strong>Region</strong></TableCell>
-                            <TableCell><strong>Capital</strong></TableCell>
-                            <TableCell><strong>Population</strong></TableCell>
-                            <TableCell><strong>Liked Countries</strong></TableCell>
+                        <TableRow className={classes.table}>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Flag</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Name</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Code</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Region</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Capital</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Population</strong></TableCell>
+                            <TableCell style={toggle ? themes.dark: {}}><strong>Liked Countries</strong></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody style={toggle ? themes.dark: {}}>
                         {allCountries.filteredCountries.length !== 0 ? allCountries.filteredCountries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
                             <TableRow key={country.name}>
-                                <TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>
                                     <img src={country.flag} width="100px" height="60px" alt="flag" />
                                 </TableCell>
-                                <TableCell><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none' }}>{country.name}</Link></TableCell>
-                                <TableCell>{country.alpha2Code}</TableCell>
-                                <TableCell>{country.region}</TableCell>
-                                <TableCell>{country.capital}</TableCell>
-                                <TableCell>{country.population}</TableCell>
-                                <TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none', color:'#546E7A' }}>{country.name}</Link></TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.alpha2Code}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.region}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>
                                     <IconButton>
-                                        <ThumbUpRoundedIcon variant="contained" color="primary" />
+                                        <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
                         )) : allCountries.countries.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(country => (
                             <TableRow key={country.name}>
-                                <TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>
                                     <img src={country.flag} width="100px" height="60px" alt="flag" />
                                 </TableCell>
-                                <TableCell><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none'}}>{country.name}</Link></TableCell>
-                                <TableCell>{country.alpha2Code}</TableCell>
-                                <TableCell>{country.region}</TableCell>
-                                <TableCell>{country.capital}</TableCell>
-                                <TableCell>{country.population}</TableCell>
-                                <TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}><Link to={`/countries/${country.name}`} style={{ textDecoration: 'none', color:'#546E7A' }}>{country.name}</Link></TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.alpha2Code}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.region}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
+                                <TableCell style={toggle ? themes.dark: {}}>
                                     <IconButton>
-                                        <ThumbUpRoundedIcon variant="contained" color="primary" />
+                                        <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                     <TablePagination
+                        style={toggle ? themes.dark: {}}
                         rowsPerPageOptions={[5, 10, 15, 20]}
                         count={allCountries.filteredCountries.length !== 0 ? allCountries.filteredCountries.length : allCountries.countries.length}
                         rowsPerPage={rowsPerPage}

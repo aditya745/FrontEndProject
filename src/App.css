@@ -5,20 +5,27 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 2em;
   position: fixed;
   top: 0;
   left: 0;
   right:0;
-  
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: white;
 }
 
-input[type=text], .toggle {
+.input {
   padding: 6px;
   margin-top: 25px;
-  font-size: 20px;
-  border: 1px solid black;
+  font-size: 18px;
+  border: 1px solid white;
   border-radius: 5px;
   outline: none;
+  background-color: transparent;
+  color: white
+}
+.toggle {
+  margin-top: 30px;
+  color: white;
 }

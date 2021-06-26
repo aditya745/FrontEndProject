@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import React from 'react'
 import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
@@ -16,12 +16,10 @@ function App() {
     <div className="App">
     <Header />
       <div className="container">
-        <Router>
           <Switch>
             <Route path='/' exact component={CountriesList} />
             <Route path='/countries/:name' exact component={CountryDetails} />
           </Switch>
-        </Router>
       </div>
     </div>
     </ThemeProvider>
