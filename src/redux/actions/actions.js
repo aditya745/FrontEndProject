@@ -19,3 +19,17 @@ export const searchedCountries = (searchInput) => {
         payload: searchInput
     }
 }
+
+export const favouriteCountries = (country) => {
+    return {
+        type: 'FAVOURITE_COUNTRIES',
+        payload: country
+    }
+}
+
+export const deleteFavouriteCountry = (country) => {
+    return {
+        type: 'DELETE_FAVOURITE_COUNTRIES',
+        payload: country
+    }
+}

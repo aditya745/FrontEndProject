@@ -40,7 +40,7 @@ const CountryCard = ({country}) => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button><Link to={'/'} style={{textDecoration: 'none'}}>Back</Link></Button>
+                        <Button><Link to={'/'} style={{textDecoration: 'none', color: '#546E7A'}}>Back</Link></Button>
                     </CardActions>
 
                 </Card>

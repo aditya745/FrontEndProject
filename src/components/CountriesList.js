@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useContext } from 'react';
+import {useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
@@ -17,6 +18,7 @@ import ThumbUpRoundedIcon from '@material-ui/icons/ThumbUpRounded';
 import useCountries from '../customHooks/countryHook';
 import { makeStyles, TableContainer } from '@material-ui/core';
 import { ThemeContext, themes } from '../themes/themes-context';
+import { favouriteCountries } from '../redux/actions/actions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const CountriesList = () => {
     const allCountries = useCountries();
     const classes = useStyles();
+    const dispatch = useDispatch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const { toggle } = useContext(ThemeContext);
@@ -75,7 +78,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
-                                    <IconButton>
+                                    <IconButton onClick={() => dispatch(favouriteCountries(country))}>
                                         <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
                                     </IconButton>
                                 </TableCell>
@@ -91,7 +94,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
-                                    <IconButton>
+                                    <IconButton onClick={() => dispatch(favouriteCountries(country))}>
                                         <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
                                     </IconButton>
                                 </TableCell>
