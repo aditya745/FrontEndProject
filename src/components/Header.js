@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/WbSunny';
 
+
 import { searchedCountries } from '../redux/actions/actions';
 import DrawerComponent from './DrawerComponent';
 import { debounce } from '@material-ui/core';
@@ -15,11 +16,11 @@ const Header = () => {
     const { toggle, toggleFunction } = useContext(ThemeContext);
 
     const filteredCountriesPath = window.location.pathname.includes('/countries');
-    console.log('path', location)
 
     return (
-        <div className='header' style={toggle ? themes.dark : { background: 'rgb(87, 145, 170)' }}>
+        <div className='header' style={toggle ? themes.dark : { background: '#5791AA' }}>
             <div>
+
                 <h1>List of Countries</h1>
             </div>
 
@@ -30,12 +31,16 @@ const Header = () => {
 
                 }
             </div>
-            <div className="toggle">
-                <span onClick={toggleFunction}>{toggle ? <Brightness7Icon fontSize='medium' /> : <Brightness4Icon fontSize='default' />}</span>
+
+            <div className="header-actions">
+                <div className="toggle">
+                    <span onClick={toggleFunction}>{toggle ? <Brightness7Icon fontSize='medium' /> : <Brightness4Icon fontSize='default' />}</span>
+                </div>
+                <div className="toggle">
+                    <DrawerComponent />
+                </div>
             </div>
-            <div className="toggle">
-                <DrawerComponent />
-            </div>
+
         </div>
     )
 }

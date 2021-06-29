@@ -61,6 +61,7 @@ const DrawerComponent = () => {
                 onClose={toggleDrawer(false)}
                 classes={{ paper: classes.paper }}
             >
+                <h2>Favourite Countries</h2>
                 {favCountries()}
             </Drawer>
         </div>

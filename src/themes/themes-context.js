@@ -18,7 +18,7 @@ const themes = {
     }
 }
 
-const ThemeContext = React.createContext(themes.dark);
+const ThemeContext = React.createContext(themes.light);
 
 const ThemeProvider = ({ children }) => {
     const [toggle, setToggle] = useState(false);

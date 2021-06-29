@@ -15,6 +15,12 @@
   color: white;
 }
 
+.header-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 16%
+}
+
 .input {
   padding: 6px;
   margin-top: 25px;
@@ -25,6 +31,11 @@
   background-color: transparent;
   color: white
 }
+
+::placeholder {
+  color: white;
+}
+
 .toggle {
   margin-top: 30px;
   color: white;

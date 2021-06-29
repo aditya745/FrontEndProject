@@ -78,7 +78,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
-                                    <IconButton onClick={() => dispatch(favouriteCountries(country))}>
+                                    <IconButton onClick={() => dispatch(favouriteCountries(country))} disabled={allCountries.favouriteCountries.includes(country) ? true: false}>
                                         <ThumbUpRoundedIcon variant="contained" style={{color: 'rgb(87, 145, 170)'}} />
                                     </IconButton>
                                 </TableCell>
@@ -94,7 +94,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.capital}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
-                                    <IconButton onClick={() => dispatch(favouriteCountries(country))}>
+                                    <IconButton onClick={() => dispatch(favouriteCountries(country))} disabled={allCountries.favouriteCountries.includes(country) ? true: false}>
                                         <ThumbUpRoundedIcon variant="contained" style={{color: 'rgb(87, 145, 170)'}} />
                                     </IconButton>
                                 </TableCell>
