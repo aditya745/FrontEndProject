@@ -79,7 +79,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
                                     <IconButton onClick={() => dispatch(favouriteCountries(country))}>
-                                        <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
+                                        <ThumbUpRoundedIcon variant="contained" style={{color: 'rgb(87, 145, 170)'}} />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
@@ -95,7 +95,7 @@ const CountriesList = () => {
                                 <TableCell style={toggle ? themes.dark: {}}>{country.population}</TableCell>
                                 <TableCell style={toggle ? themes.dark: {}}>
                                     <IconButton onClick={() => dispatch(favouriteCountries(country))}>
-                                        <ThumbUpRoundedIcon variant="contained" style={{color: '#546E7A'}} />
+                                        <ThumbUpRoundedIcon variant="contained" style={{color: 'rgb(87, 145, 170)'}} />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
