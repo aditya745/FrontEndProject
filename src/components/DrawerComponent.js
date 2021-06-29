@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Drawer, List, ListItem, Button } from '@material-ui/core';
+import { Drawer, List, ListItem } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { makeStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
@@ -10,9 +10,6 @@ import {deleteFavouriteCountry} from '../redux/actions/actions';
 import useCountries from '../customHooks/countryHook';
 
 const useStyles = makeStyles({
-    list: {
-        width: 550
-    },
     fullList: {
         width: "auto"
     },
@@ -24,6 +21,7 @@ const useStyles = makeStyles({
     list: {
         boxSizing: "none",
         justifyContent: "space-between",
+        width: 500
     },
     item: {
         paddingRight: 20
@@ -38,7 +36,7 @@ const DrawerComponent = () => {
     const toggleDrawer = (open) => () => {
         setDrawer(open)
     }
-    console.log('fav', favouriteCountries.favouriteCountries)
+
     const favCountries = () => (favouriteCountries.favouriteCountries.map((favCountry) =>
         <List key={favCountry.name}>
             <ListItem className={classes.list}>

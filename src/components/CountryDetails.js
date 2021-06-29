@@ -23,7 +23,7 @@ const CountryDetails = () => {
     
    
     return (
-        <div style={toggle ? themes.dark: {}} className="container" className={classes.root}>
+        <div style={toggle ? themes.dark: {}} className={classes.root}>
             {allCountries.countries.filter(country => country.name === name).map(country => (
                 <CountryCard country={country} key={country.name}/>
             ))}
