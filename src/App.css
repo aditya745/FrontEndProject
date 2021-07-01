@@ -17,8 +17,8 @@
 
 .header-actions {
   display: flex;
-  justify-content: space-around;
-  width: 16%
+  justify-content: space-between;
+  width: 6%
 }
 
 .input {
